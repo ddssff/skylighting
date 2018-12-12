@@ -59,7 +59,7 @@ instance FromJSON RE where
 -- a bytestring interpreted as UTF-8.  If the regex cannot be compiled,
 -- a 'RegexException' is thrown.
 compileRegex :: Bool -> BS.ByteString -> Regex
-#if __GHCJS
+#if __GHCJS__
 compileRegex caseSensitive' regexpStr =
   let opts = {-compAnchored + compUTF8 +-}
                (defaultCompOpt {caseSensitive = caseSensitive'})
